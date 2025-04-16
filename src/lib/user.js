@@ -1,4 +1,5 @@
-import client from "../../lib/mongodb";
+import client from "@/lib/mongodb";
+
 import { NextApiRequest, NextApiResponse } from 'next';
 
 export default async (req, res) => {

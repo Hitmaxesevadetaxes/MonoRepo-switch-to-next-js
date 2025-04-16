@@ -1,5 +1,5 @@
-import Sidebar from "@/components/sidebar/Sidebar"; 
-import MenuTable from "@/components/menu/Menu"; 
+import Sidebar from "../../components/sidebar/Sidebar"; 
+import MenuTable from "../../components/menu/Menu"; 
 
 export default function Home() {
   return (

@@ -1,8 +1,8 @@
 import "./home.module.css";
 
 import React from "react";
-import Sidebar from "@/components/sidebar/Sidebar";
-import Infolabel from "@/components/info/Info";
+import Sidebar from "../../components/sidebar/Sidebar";
+import Infolabel from "../../components/info/Info";
 
 export default function Home() {
   return (
