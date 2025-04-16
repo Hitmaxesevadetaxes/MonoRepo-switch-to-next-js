@@ -1,0 +1,35 @@
+.scheduleContainer {
+  padding: 20px;
+  background-color: #f9f9f9;
+}
+
+.dayHeading {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-top: 20px;
+  color: #333;
+}
+
+.break {
+  text-align: center;
+  font-style: italic;
+  margin: 10px 0;
+}
+
+.lesson {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px;
+  background-color: #fff;
+  margin-bottom: 5px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+}
+
+.lessonName {
+  font-weight: 500;
+}
+
+.lessonTime {
+  color: #666;
+}

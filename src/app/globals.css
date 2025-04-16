@@ -1,0 +1,42 @@
+a {
+  color: black;
+  text-decoration: none;
+}
+.background {
+  background-color: #ffffff;
+  border-color: #e3e8e3;
+  border-right-style: solid;
+  border-right-width: 1px;
+  height: 1200px;
+  position: relative;
+  width: 256px;
+}
+
+
+.mainContent {
+  margin-left: 280px; 
+  padding: 1rem;
+  flex: 1;
+}
+
+.container {
+  width: 400px;
+  margin: center;
+  justify-self: center;
+  padding: 2rem;
+  background-color: #f9f9f9;
+  border-radius: 16px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  line-height: 2 rem;
+  display: flex;
+  height: 100vh;
+}
+body {
+  font-family: Montserrat;
+  background-color: #f9f9f9;
+}
+.heading-welcome {
+  grid-column: 1 / span 2;
+  border-top: 2px solid #ccc;
+  padding-top: 3px;
+}

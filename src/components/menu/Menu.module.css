@@ -1,0 +1,33 @@
+.menuContainer {
+  padding: 20px;
+  background-color: #f9f9f9;
+}
+
+.select,
+.button {
+  padding: 10\px;
+  margin-bottom: 15px;
+  font-size: 16px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  width: 100%;
+  box-sizing: border-box;
+  font-family: Montserrat;
+}
+
+.select:focus,
+.input:focus {
+  outline: none;
+  border-color: #15481F;
+}
+
+.button {
+  background-color: #15481F;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.button:hover {
+  background-color: #15481F;
+}
