@@ -27,9 +27,15 @@ export default function Home() {
     }
   }
   async function login(formData) {
-    const res = await fetch("/api/login", {
+    const res = await fetch("/api/auth/login", {
       method: "POST",
-      body: formData,
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        email: formData.get("email"),
+        password: formData.get("password"),
+      }),
     });
   
     if (!res.ok) {
@@ -93,3 +99,4 @@ export default function Home() {
     </>
   );
 }
+

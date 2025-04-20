@@ -1,31 +1,51 @@
 import { NextResponse } from "next/server";
-import client from "@/lib/mongodb";
-
-
+import clientPromise from "@/lib/mongodb";
 
 export async function POST(req) {
   try {
-    const { username, password } = await req.json();
+    const { email, password } = await req.json();
 
-    await client.connect();
-    const db = client.db();
-    const user = await db.collection("users").findOne({ username });
-
-    if (!user || user.password !== password) {
-      return NextResponse.json({ message: "Невірний логін або пароль" }, { status: 401 });
+    if (!email || !password) {
+      return NextResponse.json(
+        { message: "Email та пароль обов'язкові" },
+        { status: 400 }
+      );
     }
 
-    // Встановлюємо cookie
-    const res = NextResponse.json({ message: "Вхід успішний" });
-    res.cookies.set("logged_in", "true", {
-      path: "/",
-      httpOnly: true,
-      maxAge: 60 * 60, // 1 година
-    });
+    const client = await clientPromise;
+    const db = client.db("Users"); 
 
-    return res;
+    const user = await db
+      .collection("users")
+      .findOne({ email: email.toLowerCase().trim() });
+
+    if (!user) {
+      return NextResponse.json(
+        { message: "Користувача не знайдено" },
+        { status: 401 }
+      );
+    }
+
+    if (user.password !== password) {
+      return NextResponse.json(
+        { message: "Невірний пароль" },
+        { status: 401 }
+      );
+    }
+
+    // Успішний логін
+    return NextResponse.json({
+      message: "Вхід успішний",
+      user: {
+        email: user.email,
+        // Можна додати будь-які інші не-чутливі поля
+      },
+    });
   } catch (error) {
     console.error("Server error:", error);
-    return NextResponse.json({ message: "Помилка сервера" }, { status: 500 });
+    return NextResponse.json(
+      { message: "Внутрішня помилка сервера" },
+      { status: 500 }
+    );
   }
 }
